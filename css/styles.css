@@ -2947,6 +2947,24 @@ html {
   cursor: pointer;
 }
 
+/* Evita que el control nativo de fecha imponga su ancho en Safari móvil. */
+.form-field input[type="date"] {
+  max-width: 100%;
+  min-inline-size: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-field input[type="date"]::-webkit-date-and-time-value {
+  min-width: 0;
+  text-align: left;
+}
+
+.form-field input[type="date"]::-webkit-datetime-edit {
+  min-width: 0;
+  padding: 0;
+}
+
 .form-field textarea {
   height: 146px;
   min-height: 146px;
@@ -3121,6 +3139,8 @@ html {
 
 .site-footer {
   width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
   background: var(--fondo4);
   padding: 70px 80px;
 }
